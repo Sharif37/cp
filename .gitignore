@@ -1,0 +1,4 @@
+# Ignore executable files in subfolder
+/random/*
+!/random/*.cpp
+/.vscode/*
