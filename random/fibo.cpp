@@ -1,41 +1,32 @@
-#include<bits/stdc++.h>
-using namespace std ;
-#define  ll long long 
+#include <iostream>
+#include <unordered_map>
 
-unordered_map<int,ll>fibocache ;
-ll fibo(int n)
+std::unordered_map<int, long long> fibocache;
+
+long long fibo(int n)
 {
-  if(n==0)
-  return 0 ;
-  else if(n==1 )
-  return 1 ;
-
-  else if(fibocache.find(n)!=fibocache.end())
-  {
-    return fibocache[n];
-  }
-  else{
-     fibocache[n]=fibo(n-1)+fibo(n-2);
+    if (n == 0)
+        return 0;
+    if (fibocache.find(n) != fibocache.end())
+    {
         return fibocache[n];
-  }
+    }
+    else
+    {
+        fibocache[n] = fibo(n - 1) + fibo(n - 2);
+        return fibocache[n];
+    }
 }
 
 int main()
 {
-int n ;
-cin>>n ;
+    int n;
+    std::cin >> n;
 
+    for (int i = 0; i <= n; i++)
+    {
+        std::cout << fibo(i) << " ";
+    }
 
-
-for(int i=0 ;i<=n ;i++)
-{
-    cout<<fibo(i)<<" ";
-}
-
-
-
-
-
-
-return 0;
+    return 0;
 }
